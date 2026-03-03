@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alexandria Energy Progress</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f4f6f8;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    canvas {
+      margin-top: 30px;
+    }
+
+    .quiz {
+      margin-top: 25px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .quiz button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: none;
+      background-color: #1f4e79;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .highlight {
+      font-size: 1.2em;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+  </style>
+</head>
+<body>
+
+<section>
+  <h1>How Alexandria’s Energy Use Has Changed</h1>
+  <p>
+    Alexandria has reduced community greenhouse gas emissions (carbon dioxide and other heat-trapping gases) 
+    since 2005. Below is a visual representation of total emissions over time.
+  </p>
+
+  <canvas id="emissionsLine"></canvas>
+
+  <div class="highlight">
+    2030 Target: 945,000 metric tons (50% reduction from 2005)
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <p>How much has total emissions decreased from 2005 to 2020?</p>
+    <button onclick="checkAnswer1('A')">A) 10%</button>
+    <button onclick="checkAnswer1('B')">B) 20%</button>
+    <button onclick="checkAnswer1('C')">C) 31%</button>
+    <div class="result" id="result1"></div>
+  </div>
+</section>
+
+
+<section>
+  <h2>Emissions Per Person</h2>
+  <p>
+    Even as population increased, emissions per resident declined significantly.
+  </p>
+
+  <canvas id="perCapitaBar"></canvas>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <p>Emissions per person dropped from 14.1 metric tons in 2005 to:</p>
+    <button onclick="checkAnswer2('A')">A) 12.5</button>
+    <button onclick="checkAnswer2('B')">B) 7.7</button>
+    <button onclick="checkAnswer2('C')">C) 10.2</button>
+    <div class="result" id="result2"></div>
+  </div>
+</section>
+
+
+<section>
+  <h2>Where Emissions Come From</h2>
+  <p>
+    Most emissions come from buildings and transportation.
+  </p>
+
+  <canvas id="sectorPie"></canvas>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <p>Which sector contributes the most emissions?</p>
+    <button onclick="checkAnswer3('A')">A) Buildings</button>
+    <button onclick="checkAnswer3('B')">B) Transportation</button>
+    <button onclick="checkAnswer3('C')">C) Waste</button>
+    <div class="result" id="result3"></div>
+  </div>
+</section>
+
+
+<section>
+  <h2>Are We On Track for 2030?</h2>
+  <p>
+    Alexandria must reach 945,000 metric tons by 2030.
+  </p>
+
+  <canvas id="targetGauge"></canvas>
+
+  <p class="highlight">
+    Current level (2020): ~1.30 million metric tons  
+  </p>
+</section>
+
+
+<script>
+
+// Line Chart - Total Emissions
+new Chart(document.getElementById('emissionsLine'), {
+  type: 'line',
+  data: {
+    labels: ['2005', '2015', '2020', '2030 Target'],
+    datasets: [{
+      label: 'Total Greenhouse Gas Emissions (Million Metric Tons)',
+      data: [1.89, 1.64, 1.30, 0.945],
+      fill: false,
+      tension: 0.2
+    }]
+  }
+});
+
+
+// Bar Chart - Per Capita
+new Chart(document.getElementById('perCapitaBar'), {
+  type: 'bar',
+  data: {
+    labels: ['2005', '2015', '2020'],
+    datasets: [{
+      label: 'Metric Tons Per Person',
+      data: [14.1, 11.0, 7.7]
+    }]
+  }
+});
+
+
+// Pie Chart - Sector Breakdown
+new Chart(document.getElementById('sectorPie'), {
+  type: 'pie',
+  data: {
+    labels: ['Buildings (57%)', 'Transportation (36%)', 'Other (7%)'],
+    datasets: [{
+      data: [57, 36, 7]
+    }]
+  }
+});
+
+
+// Target Bar
+new Chart(document.getElementById('targetGauge'), {
+  type: 'bar',
+  data: {
+    labels: ['2005', '2020', '2030 Target'],
+    datasets: [{
+      label: 'Million Metric Tons',
+      data: [1.89, 1.30, 0.945]
+    }]
+  }
+});
+
+
+// Quiz Functions
+function checkAnswer1(answer) {
+  document.getElementById('result1').innerHTML =
+    answer === 'C' ? "Correct! Emissions decreased by about 31%." : "Not quite. Try again.";
+}
+
+function checkAnswer2(answer) {
+  document.getElementById('result2').innerHTML =
+    answer === 'B' ? "Correct! It dropped to 7.7 metric tons per person." : "Not quite. Try again.";
+}
+
+function checkAnswer3(answer) {
+  document.getElementById('result3').innerHTML =
+    answer === 'A' ? "Correct! Buildings account for the largest share." : "Not quite. Try again.";
+}
+
+</script>
+
+</body>
+</html>
