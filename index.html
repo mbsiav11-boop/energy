@@ -85,20 +85,39 @@ input[type="range"] {
 
 .city-visual {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-end;
+    gap: 50px;
     margin-top: 40px;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 .city-block {
     text-align: center;
+    max-width: 150px;
 }
 
 .city-bar {
-    width: 80px;
+    width: 70px;
     background: linear-gradient(to top, #1e90ff, #ff4d4d);
-    border-radius: 6px;
+    border-radius: 8px;
+    margin: auto;
 }
+@media (max-width: 600px) {
+
+.city-visual {
+    gap: 30px;
+}
+
+.city-bar {
+    width: 60px;
+}
+
+.city-block p {
+    font-size: 14px;
+}
+
 
 .next-button {
     display: inline-block;
@@ -194,7 +213,11 @@ Energy Used: <strong><span id="energyResult">2</span> kWh</strong>
 <div class="city-visual">
 <div class="city-block">
 <div class="city-bar" style="height:100px;"></div>
-<p><strong>Small City</strong><br>Grand Junction, CO<br>1.45M kWh/day</p>
+<p>
+<strong>Small City</strong><br>
+<span style="font-size:14px;">Grand Junction, CO</span><br>
+<span style="font-size:14px;">1.45M kWh/day</span>
+</p>
 </div>
 
 <div class="city-block">
@@ -207,16 +230,7 @@ Energy Used: <strong><span id="energyResult">2</span> kWh</strong>
 <p><strong>Large City</strong><br>Atlanta, GA<br>14.5M kWh/day</p>
 </div>
 </div>
-</section>
 
-<div class="divider"></div>
-
-<section class="engage-box">
-<h2>Carbon Impact Estimator</h2>
-<p>As you adjust your home energy use above, see how it translates to carbon pollution:</p>
-<p>Daily CO₂: <strong><span id="dailyCO2">0</span> kg</strong></p>
-<p>Annual CO₂: <strong><span id="annualCO2">0</span> metric tons</strong></p>
-<p>Why this matters: Every kWh comes from energy production. If fossil fuels are used, CO₂ is emitted. Less usage = less pollution.</p>
 </section>
 
 <div style="text-align:center; margin:60px 0;">
@@ -239,12 +253,7 @@ function updateEnergy() {
     document.getElementById("hourDisplay").textContent = hours;
     document.getElementById("energyResult").textContent = kWh.toFixed(2);
 
-    let dailyCO2 = kWh * 0.4;
-    let annualCO2 = (dailyCO2 * 365) / 1000;
-
-    document.getElementById("dailyCO2").textContent = dailyCO2.toFixed(2);
-    document.getElementById("annualCO2").textContent = annualCO2.toFixed(2);
-
+   
     let icon = document.getElementById("activityIcon");
 
     if (kWh > 30) {
