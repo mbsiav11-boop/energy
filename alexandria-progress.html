@@ -3,289 +3,453 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Understanding Energy in Everyday Life</title>
+<title>Alexandria Energy and Climate Progress</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #e6f2ff, #ffffff);
-    color: #1a1a1a;
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(to bottom,#e6f2ff,#ffffff);
+color:#1a1a1a;
 }
 
-nav {
-    background: #0f2a44;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-}
-nav a {
-    color: white;
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav a:hover {
-    color: #ff4d4d;
+nav{
+background:#0f2a44;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
 }
 
-section {
-    padding: 70px 20px;
-    max-width: 1100px;
-    margin: auto;
+nav a{
+color:white;
+margin:0 20px;
+text-decoration:none;
+font-weight:bold;
 }
 
-h1, h2 {
-    text-align: center;
+nav a:hover{
+color:#ff4d4d;
 }
 
-.divider {
-    height: 4px;
-    background: linear-gradient(to right, #1e90ff, #ff4d4d);
-    margin: 60px auto;
-    width: 85%;
-    border-radius: 2px;
+section{
+padding:60px 20px;
+max-width:1100px;
+margin:auto;
 }
 
-.highlight-box {
-    background: #f0f7ff;
-    padding: 20px;
-    border-left: 6px solid #1e90ff;
-    margin: 20px 0;
-    text-align: center;
+h1,h2{
+text-align:center;
 }
 
-input[type="range"] {
-    width: 100%;
+.divider{
+height:4px;
+background:linear-gradient(to right,#1e90ff,#ff4d4d);
+margin:60px auto;
+width:85%;
+border-radius:2px;
 }
 
-.activity-icon {
-    width: 130px;
-    margin-top: 15px;
+.slider{
+width:100%;
+margin:10px 0;
 }
 
-.small-chart {
-    max-width: 700px; /* moderately bigger */
-    margin: 20px auto;
+.result-box{
+background:#eef7ff;
+padding:20px;
+border-left:6px solid #1e90ff;
+margin-top:20px;
+text-align:center;
 }
 
-.bar-chart {
-    max-width: 700px;
-    margin: 20px auto;
+.chart-container{
+max-width:420px;
+margin:auto;
 }
 
-.fun-facts {
-    background: #fff5f5;
-    padding: 20px;
-    border-left: 6px solid #ff4d4d;
-    margin-top: 25px;
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:30px;
 }
 
-.city-visual {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 50px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    text-align: center;
+.card{
+background:#ffffff;
+border-radius:8px;
+padding:20px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+cursor:pointer;
 }
 
-.city-block {
-    text-align: center;
-    max-width: 150px;
+.card:hover{
+transform:scale(1.03);
 }
 
-.city-bar {
-    width: 70px;
-    background: linear-gradient(to top, #1e90ff, #ff4d4d);
-    border-radius: 8px;
-    margin: auto;
-}
-@media (max-width: 600px) {
-
-.city-visual {
-    gap: 30px;
+button{
+margin:8px;
+padding:10px 15px;
+border:none;
+background:#1e90ff;
+color:white;
+cursor:pointer;
+border-radius:4px;
 }
 
-.city-bar {
-    width: 60px;
+button:hover{
+background:#0d6efd;
 }
 
-.city-block p {
-    font-size: 14px;
+.feedback{
+margin-top:10px;
+font-weight:bold;
 }
 
-
-.next-button {
-    display: inline-block;
-    padding: 14px 26px;
-    background: linear-gradient(135deg,#1e90ff,#ff4d4d);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
+@media (max-width:600px){
+.chart-container{
+max-width:320px;
 }
-.next-button:hover {
-    opacity: 0.85;
 }
 
-.info-box {
-    background: #eef7ff;
-    padding: 15px;
-    margin-top: 15px;
-    border-left: 5px solid #1e90ff;
-}
-
-.engage-box {
-    background: #f0fff0;
-    padding: 20px;
-    border-left: 6px solid #4CAF50;
-    margin-top: 30px;
-}
 </style>
 </head>
 
 <body>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="alexandria-progress.html">Alexandria Energy Progress</a>
+<a href="index.html">Home</a>
+<a href="alexandria-progress.html">Alexandria Energy Progress</a>
 </nav>
 
 <section>
-<h1>Understanding Energy in Everyday Life</h1>
-<p style="text-align:center; font-size:18px;">
-Energy powers everything around us — from devices in our homes to entire cities.
-Understanding scale begins with understanding use.
+
+<h1>How Alexandria Tracks Energy Use and Carbon Emissions</h1>
+
+<p style="text-align:center;max-width:800px;margin:auto;font-size:18px;">
+Cities use large amounts of energy to power homes, transportation, and infrastructure.
+When fossil fuels are burned to generate electricity, carbon dioxide (CO₂) is released.
+Cities track this pollution in <strong>metric tons of CO₂</strong> to measure climate progress.
 </p>
+
 </section>
 
 <div class="divider"></div>
 
 <section>
-<h2>How Everyday Activities Compare</h2>
 
-<p>The average U.S. home consumes approximately <strong>29 kilowatt-hours (kWh) per day</strong>.</p>
+<h2>From Energy Use to Carbon Emissions</h2>
 
-<div class="info-box">
-<strong>Understanding the Units:</strong><br>
-• 1,000 Watts (W) = 1 kilowatt (kW)<br>
-• kWh measures energy used over time.<br>
-• Formula: Energy (kWh) = (Watts × Hours) ÷ 1000
+<label>Power Used: <span id="wattDisplay">1000</span> W</label>
+<input class="slider" type="range" min="100" max="5000" step="100" value="1000" id="wattSlider">
+
+<label>Time Used: <span id="hourDisplay">2</span> hours</label>
+<input class="slider" type="range" min="0.5" max="24" step="0.5" value="2" id="hourSlider">
+
+<div class="result-box">
+
+<h3>Energy Used</h3>
+<h2><span id="energyResult">2</span> kWh</h2>
+
+<p>Daily CO₂ Emissions</p>
+<h3><span id="dailyCO2">0</span> kg</h3>
+
+<p>Annual CO₂ Emissions</p>
+<h3><span id="annualCO2">0</span> metric tons</h3>
+
+<p style="font-size:14px;">
+1 kWh of electricity in the U.S. produces about <strong>0.4 kg of CO₂</strong>.
+</p>
+
 </div>
 
-<label>
-Power: <span id="wattDisplay">1000</span> W 
-(<span id="kwDisplay">1.0</span> kW)
-</label>
-<input type="range" min="100" max="5000" step="100" value="1000" id="wattSlider">
+<div class="result-box">
 
-<label>Time Used (Hours): <span id="hourDisplay">2</span> hrs</label>
-<input type="range" min="0.5" max="24" step="0.5" value="2" id="hourSlider">
+<h3>Understanding Metric Tons</h3>
 
-<div class="highlight-box">
-Energy Used: <strong><span id="energyResult">2</span> kWh</strong>
-<p id="comparisonText"></p>
-<img id="activityIcon" class="activity-icon" src="">
-</div>
+<p>1 metric ton = 1,000 kilograms of CO₂.</p>
 
-<h3>Average Daily Home Energy Breakdown</h3>
-<canvas id="homeChart" class="small-chart"></canvas>
-
-<div class="fun-facts">
-<strong>Fun Facts:</strong>
-<ul>
-<li>🔵 Heating & Cooling = ~40% of home energy.</li>
-<li>🟡 Water heaters operate daily.</li>
-<li>🟢 LEDs use up to 75% less electricity.</li>
-<li>⚡ Solar panels can offset part of 29 kWh/day.</li>
+<ul style="text-align:left;max-width:500px;margin:auto;">
+<li>1 kg CO₂ ≈ driving a gasoline car about 2–3 miles</li>
+<li>100 kg CO₂ ≈ driving about 250 miles</li>
+<li>1 metric ton CO₂ ≈ driving about 2,500 miles</li>
+<li>~4 metric tons ≈ average yearly home electricity emissions</li>
 </ul>
-</div>
 
-<div class="divider"></div>
-
-<section>
-<h2>From Home to City Scale</h2>
-
-<div class="city-visual">
-<div class="city-block">
-<div class="city-bar" style="height:100px;"></div>
-<p>
-<strong>Small City</strong><br>
-<span style="font-size:14px;">Grand Junction, CO</span><br>
-<span style="font-size:14px;">1.45M kWh/day</span>
-</p>
-</div>
-
-<div class="city-block">
-<div class="city-bar" style="height:200px;"></div>
-<p><strong>Mid-Size City</strong><br>Alexandria, VA<br>4.64M kWh/day</p>
-</div>
-
-<div class="city-block">
-<div class="city-bar" style="height:300px;"></div>
-<p><strong>Large City</strong><br>Atlanta, GA<br>14.5M kWh/day</p>
-</div>
 </div>
 
 </section>
 
-<div style="text-align:center; margin:60px 0;">
-  <a href="alexandria-progress.html" class="next-button">
-     Continue to Alexandria Energy Progress →
-  </a>
+<div class="divider"></div>
+
+<section>
+
+<h2>Where Alexandria's Emissions Come From</h2>
+
+<div class="chart-container">
+<canvas id="emissionsPie"></canvas>
 </div>
+
+</section>
+
+<div class="divider"></div>
+
+<section>
+
+<h2>How Alexandria's Energy Use Has Changed</h2>
+
+<div class="chart-container">
+<canvas id="trendChart"></canvas>
+</div>
+
+<ul style="max-width:650px;margin:20px auto;">
+<li>Alexandria measures emissions in <strong>million metric tons of CO₂</strong>.</li>
+<li>The city uses <strong>2005 as its baseline year</strong> for tracking progress.</li>
+<li>The goal is to reduce emissions <strong>50% below 2005 levels by 2030</strong>.</li>
+<li>Long-term plans aim for <strong>net-zero emissions by 2050</strong>.</li>
+<li>Progress has already been made through efficiency upgrades and cleaner electricity.</li>
+</ul>
+
+</section>
+
+<div class="divider"></div>
+
+<section>
+
+<h2>Public Spaces</h2>
+
+<p style="text-align:center;">Click a location to see how improvements reduce energy use.</p>
+
+<div class="card-grid">
+
+<div class="card" onclick="showInfo('cityhall')">
+<strong>Alexandria City Hall</strong>
+</div>
+
+<div class="card" onclick="showInfo('school')">
+<strong>Alexandria City High School</strong>
+</div>
+
+<div class="card" onclick="showInfo('library')">
+<strong>Beatley Central Library</strong>
+</div>
+
+<div class="card" onclick="showInfo('parking')">
+<strong>Public Parking Garages</strong>
+</div>
+
+<div class="card" onclick="showInfo('lights')">
+<strong>City Streetlights</strong>
+</div>
+
+</div>
+
+<p id="buildingInfo" style="text-align:center;margin-top:20px;font-weight:bold;"></p>
+
+</section>
+
+<div class="divider"></div>
+
+<section>
+
+<h2>Knowledge Checks</h2>
+
+<p><strong>Question 1:</strong> How many kilograms are in one metric ton?</p>
+
+<button onclick="checkAnswer(this,false)">100</button>
+<button onclick="checkAnswer(this,true)">1000</button>
+<button onclick="checkAnswer(this,false)">10,000</button>
+
+<p class="feedback"></p>
+
+<br>
+
+<p><strong>Question 2:</strong> What year does Alexandria use as its baseline for emissions tracking?</p>
+
+<button onclick="checkAnswer(this,false)">2010</button>
+<button onclick="checkAnswer(this,true)">2005</button>
+<button onclick="checkAnswer(this,false)">2020</button>
+
+<p class="feedback"></p>
+
+<br>
+
+<p><strong>Question 3:</strong> How much electricity do Alexandria’s LED streetlights save each year?</p>
+
+<button onclick="checkAnswer(this,false)">90,000 kWh</button>
+<button onclick="checkAnswer(this,true)">900,000 kWh</button>
+<button onclick="checkAnswer(this,false)">9 million kWh</button>
+
+<p class="feedback"></p>
+
+</section>
 
 <script>
-let wattSlider = document.getElementById("wattSlider");
-let hourSlider = document.getElementById("hourSlider");
 
-function updateEnergy() {
-    let watts = wattSlider.value;
-    let hours = hourSlider.value;
-    let kWh = (watts * hours) / 1000;
+let wattSlider=document.getElementById("wattSlider");
+let hourSlider=document.getElementById("hourSlider");
 
-    document.getElementById("wattDisplay").textContent = watts;
-    document.getElementById("kwDisplay").textContent = (watts/1000).toFixed(1);
-    document.getElementById("hourDisplay").textContent = hours;
-    document.getElementById("energyResult").textContent = kWh.toFixed(2);
+function updateEnergy(){
 
-   
-    let icon = document.getElementById("activityIcon");
+let watts=wattSlider.value;
+let hours=hourSlider.value;
 
-    if (kWh > 30) {
-        document.getElementById("comparisonText").textContent = "Comparable to charging an electric vehicle.";
-        icon.src = "https://img.icons8.com/ios-filled/200/electric-vehicle.png";
-    } else if (kWh > 10) {
-        document.getElementById("comparisonText").textContent = "Comparable to running central air conditioning.";
-        icon.src = "https://img.icons8.com/ios-filled/200/air-conditioner.png";
-    } else if (kWh > 3) {
-        document.getElementById("comparisonText").textContent = "Comparable to running a clothes dryer.";
-        icon.src = "https://img.icons8.com/ios-filled/200/dryer.png";
-    } else {
-        document.getElementById("comparisonText").textContent = "Comparable to using a microwave.";
-        icon.src = "https://img.icons8.com/ios-filled/200/microwave.png";
-    }
+let kWh=(watts*hours)/1000;
+
+document.getElementById("wattDisplay").textContent=watts;
+document.getElementById("hourDisplay").textContent=hours;
+document.getElementById("energyResult").textContent=kWh.toFixed(2);
+
+let dailyCO2=kWh*0.4;
+let annualCO2=(dailyCO2*365)/1000;
+
+document.getElementById("dailyCO2").textContent=dailyCO2.toFixed(2);
+document.getElementById("annualCO2").textContent=annualCO2.toFixed(2);
+
 }
 
-wattSlider.oninput = updateEnergy;
-hourSlider.oninput = updateEnergy;
+wattSlider.oninput=updateEnergy;
+hourSlider.oninput=updateEnergy;
+
 updateEnergy();
 
-new Chart(document.getElementById("homeChart"), {
-    type: 'pie',
-    data: {
-        labels: ["Heating & Cooling 40%", "Water Heating 18%", "Appliances 15%", "Lighting 10%", "Electronics 9%", "Other 8%"],
-        datasets: [{
-            data: [40,18,15,10,9,8],
-            backgroundColor: ["#1e90ff","#ff4d4d","#4CAF50","#ffcc00","#9b59b6","#95a5a6"]
-        }]
-    }
+new Chart(document.getElementById("emissionsPie"),{
+type:'pie',
+data:{
+labels:["Buildings","Transportation","Waste","Other"],
+datasets:[{
+data:[45,40,8,7],
+backgroundColor:["#1e90ff","#ff4d4d","#4CAF50","#ffcc00"]
+}]
+}
 });
-</script>
 
+new Chart(document.getElementById("trendChart"),{
+type:'line',
+data:{
+labels:["2005","2010","2015","2020","2023"],
+datasets:[{
+label:"City Emissions (Million Metric Tons CO₂)",
+data:[2.2,2.0,1.89,1.3,0.95],
+borderColor:"#1e90ff",
+fill:false
+}]
+}
+});
+
+function showInfo(place){
+
+let text="";
+
+if(place==="cityhall"){
+text="City Hall has upgraded lighting systems and improved building efficiency to reduce electricity use.";
+}
+
+if(place==="school"){
+text="Alexandria City High School has improved HVAC systems and energy management to lower energy consumption.";
+}
+
+if(place==="library"){
+text="Beatley Central Library has implemented efficient lighting and building upgrades to reduce electricity demand.";
+}
+
+if(place==="parking"){
+text="Public parking garages include electric vehicle charging stations that support cleaner transportation.";
+}
+
+if(place==="lights"){
+text="The City of Alexandria retrofitted more than 3,000 streetlights to LED technology, saving about 900,000 kilowatt-hours (kWh) of electricity each year.";
+}
+
+document.getElementById("buildingInfo").textContent=text;
+
+}
+
+function checkAnswer(button,correct){
+
+let feedback=button.parentElement.querySelector(".feedback");
+
+if(correct){
+feedback.textContent="Correct!";
+feedback.style.color="green";
+}else{
+feedback.textContent="Try again.";
+feedback.style.color="red";
+}
+
+}
+
+</script>
+<div class="divider"></div>
+
+<section>
+
+<h2>Getting Involved in Alexandria</h2>
+
+<p style="text-align:center;max-width:800px;margin:auto;">
+Students and teens can play an important role in helping Alexandria reduce energy use
+and carbon emissions. Small actions in schools, neighborhoods, and city programs
+can make a real difference when many people participate.
+</p>
+
+<div class="card-grid">
+
+<div class="card">
+<strong>Join School Environmental Clubs</strong>
+<p>
+Many Alexandria schools have sustainability or environmental clubs.
+Students work on projects like reducing energy waste, organizing recycling
+programs, and promoting climate awareness.
+</p>
+</div>
+
+<div class="card">
+<strong>Participate in City Clean-Up Events</strong>
+<p>
+The City of Alexandria regularly hosts community clean-up days where
+volunteers help remove trash from parks and waterways. Keeping public
+spaces clean helps protect local ecosystems.
+</p>
+</div>
+
+<div class="card">
+<strong>Use Sustainable Transportation</strong>
+<p>
+Walking, biking, or using public transportation instead of driving
+reduces emissions from transportation, one of the largest sources
+of city carbon pollution.
+</p>
+</div>
+
+<div class="card">
+<strong>Volunteer with Local Environmental Groups</strong>
+<p>
+Organizations in Alexandria offer volunteer opportunities focused
+on tree planting, energy awareness campaigns, and climate education.
+</p>
+</div>
+
+<div class="card">
+<strong>Support Energy Conservation at Home</strong>
+<p>
+Teens can help families reduce electricity use by turning off lights,
+using energy-efficient appliances, and being aware of daily energy use.
+</p>
+</div>
+
+<div class="card">
+<strong>Attend City Sustainability Events</strong>
+<p>
+Alexandria hosts sustainability workshops and climate planning meetings
+where residents can learn about city goals and contribute ideas for
+reducing emissions.
+</p>
+</div>
+
+</div>
+
+</section>
 </body>
 </html>
