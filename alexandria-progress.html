@@ -71,8 +71,8 @@ margin:auto;
 }
 
 .card-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+display:flex;
+flex-direction:column;
 gap:20px;
 margin-top:30px;
 }
@@ -142,6 +142,21 @@ Cities track this pollution in <strong>metric tons of CO₂</strong> to measure 
 
 <h2>From Energy Use to Carbon Emissions</h2>
 
+<div class="result-box">
+
+<h3>Understanding Metric Tons</h3>
+
+<p>1 metric ton = 1,000 kilograms of CO₂.</p>
+
+<ul style="text-align:left;max-width:500px;margin:auto;">
+<li>1 kg CO₂ ≈ driving a gasoline car about 2–3 miles</li>
+<li>100 kg CO₂ ≈ driving about 250 miles</li>
+<li>1 metric ton CO₂ ≈ driving about 2,500 miles</li>
+<li>~4 metric tons ≈ average yearly home electricity emissions</li>
+</ul>
+
+</div>
+
 <label>Power Used: <span id="wattDisplay">1000</span> W</label>
 <input class="slider" type="range" min="100" max="5000" step="100" value="1000" id="wattSlider">
 
@@ -162,21 +177,6 @@ Cities track this pollution in <strong>metric tons of CO₂</strong> to measure 
 <p style="font-size:14px;">
 1 kWh of electricity in the U.S. produces about <strong>0.4 kg of CO₂</strong>.
 </p>
-
-</div>
-
-<div class="result-box">
-
-<h3>Understanding Metric Tons</h3>
-
-<p>1 metric ton = 1,000 kilograms of CO₂.</p>
-
-<ul style="text-align:left;max-width:500px;margin:auto;">
-<li>1 kg CO₂ ≈ driving a gasoline car about 2–3 miles</li>
-<li>100 kg CO₂ ≈ driving about 250 miles</li>
-<li>1 metric ton CO₂ ≈ driving about 2,500 miles</li>
-<li>~4 metric tons ≈ average yearly home electricity emissions</li>
-</ul>
 
 </div>
 
@@ -224,29 +224,42 @@ Cities track this pollution in <strong>metric tons of CO₂</strong> to measure 
 
 <div class="card-grid">
 
-<div class="card" onclick="showInfo('cityhall')">
+<div class="card" onclick="toggleCard('cityhallInfo')">
 <strong>Alexandria City Hall</strong>
+<p id="cityhallInfo" style="display:none;margin-top:10px;">
+City Hall has upgraded lighting systems and improved building efficiency to reduce electricity use.
+</p>
 </div>
 
-<div class="card" onclick="showInfo('school')">
+<div class="card" onclick="toggleCard('schoolInfo')">
 <strong>Alexandria City High School</strong>
+<p id="schoolInfo" style="display:none;margin-top:10px;">
+Alexandria City High School has improved HVAC systems and energy management to lower energy consumption.
+</p>
 </div>
 
-<div class="card" onclick="showInfo('library')">
+<div class="card" onclick="toggleCard('libraryInfo')">
 <strong>Beatley Central Library</strong>
+<p id="libraryInfo" style="display:none;margin-top:10px;">
+Beatley Central Library has implemented efficient lighting and building upgrades to reduce electricity demand.
+</p>
 </div>
 
-<div class="card" onclick="showInfo('parking')">
+<div class="card" onclick="toggleCard('parkingInfo')">
 <strong>Public Parking Garages</strong>
+<p id="parkingInfo" style="display:none;margin-top:10px;">
+Public parking garages include electric vehicle charging stations that support cleaner transportation.
+</p>
 </div>
 
-<div class="card" onclick="showInfo('lights')">
+<div class="card" onclick="toggleCard('lightsInfo')">
 <strong>City Streetlights</strong>
+<p id="lightsInfo" style="display:none;margin-top:10px;">
+The City of Alexandria retrofitted more than 3,000 streetlights to LED technology, saving about 900,000 kilowatt-hours (kWh) of electricity each year.
+</p>
 </div>
 
 </div>
-
-<p id="buildingInfo" style="text-align:center;margin-top:20px;font-weight:bold;"></p>
 
 </section>
 
@@ -339,37 +352,18 @@ fill:false
 }
 });
 
-function showInfo(place){
-
-let text="";
-
-if(place==="cityhall"){
-text="City Hall has upgraded lighting systems and improved building efficiency to reduce electricity use.";
-}
-
-if(place==="school"){
-text="Alexandria City High School has improved HVAC systems and energy management to lower energy consumption.";
-}
-
-if(place==="library"){
-text="Beatley Central Library has implemented efficient lighting and building upgrades to reduce electricity demand.";
-}
-
-if(place==="parking"){
-text="Public parking garages include electric vehicle charging stations that support cleaner transportation.";
-}
-
-if(place==="lights"){
-text="The City of Alexandria retrofitted more than 3,000 streetlights to LED technology, saving about 900,000 kilowatt-hours (kWh) of electricity each year.";
-}
-
-document.getElementById("buildingInfo").textContent=text;
-
+function toggleCard(id){
+let el=document.getElementById(id);
+el.style.display=(el.style.display==="none")?"block":"none";
 }
 
 function checkAnswer(button,correct){
 
-let feedback=button.parentElement.querySelector(".feedback");
+let feedback = button.nextElementSibling;
+
+while(feedback && !feedback.classList.contains("feedback")){
+    feedback = feedback.nextElementSibling;
+}
 
 if(correct){
 feedback.textContent="Correct!";
@@ -382,6 +376,7 @@ feedback.style.color="red";
 }
 
 </script>
+
 <div class="divider"></div>
 
 <section>
@@ -451,5 +446,6 @@ reducing emissions.
 </div>
 
 </section>
+
 </body>
 </html>
