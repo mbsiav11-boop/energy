@@ -67,7 +67,7 @@ input[type="range"] {
 }
 
 .small-chart {
-    max-width: 700px; /* moderately bigger */
+    max-width: 700px;
     margin: 20px auto;
 }
 
@@ -104,6 +104,7 @@ input[type="range"] {
     border-radius: 8px;
     margin: auto;
 }
+
 @media (max-width: 600px) {
 
 .city-visual {
@@ -118,15 +119,18 @@ input[type="range"] {
     font-size: 14px;
 }
 
+}
 
 .next-button {
     display: inline-block;
-    padding: 14px 26px;
+    padding: 16px 30px;
     background: linear-gradient(135deg,#1e90ff,#ff4d4d);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 30px;
     font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
 .next-button:hover {
     opacity: 0.85;
@@ -189,11 +193,18 @@ Power: <span id="wattDisplay">1000</span> W
 <div class="highlight-box">
 Energy Used: <strong><span id="energyResult">2</span> kWh</strong>
 <p id="comparisonText"></p>
+
 <img id="activityIcon" class="activity-icon" src="">
+<img id="dryerPhoto" class="activity-icon" src="https://img.icons8.com/ios-filled/200/dryer.png" style="display:none;">
+
 </div>
 
 <h3>Average Daily Home Energy Breakdown</h3>
 <canvas id="homeChart" class="small-chart"></canvas>
+
+<p style="text-align:center; font-size:16px;">
+Average home electricity consumption: <strong>29 kWh per day</strong>
+</p>
 
 <div class="fun-facts">
 <strong>Fun Facts:</strong>
@@ -235,7 +246,7 @@ Energy Used: <strong><span id="energyResult">2</span> kWh</strong>
 
 <div style="text-align:center; margin:60px 0;">
   <a href="alexandria-progress.html" class="next-button">
-     Continue to Alexandria Energy Progress →
+     🌎 Explore Alexandria's Energy Progress →
   </a>
 </div>
 
@@ -253,8 +264,9 @@ function updateEnergy() {
     document.getElementById("hourDisplay").textContent = hours;
     document.getElementById("energyResult").textContent = kWh.toFixed(2);
 
-   
     let icon = document.getElementById("activityIcon");
+    let dryerPhoto = document.getElementById("dryerPhoto");
+    dryerPhoto.style.display = "none";
 
     if (kWh > 30) {
         document.getElementById("comparisonText").textContent = "Comparable to charging an electric vehicle.";
@@ -262,10 +274,11 @@ function updateEnergy() {
     } else if (kWh > 10) {
         document.getElementById("comparisonText").textContent = "Comparable to running central air conditioning.";
         icon.src = "https://img.icons8.com/ios-filled/200/air-conditioner.png";
-    } else if (kWh > 3) {
-        document.getElementById("comparisonText").textContent = "Comparable to running a clothes dryer.";
-        icon.src = "https://img.icons8.com/ios-filled/200/dryer.png";
-    } else {
+   }else if (kWh > 3) {
+    document.getElementById("comparisonText").textContent = "Comparable to running a clothes dryer.";
+    icon.src = "https://img.icons8.com/ios-filled/300/dryer.png";
+    icon.style.width = "140px";
+}else {
         document.getElementById("comparisonText").textContent = "Comparable to using a microwave.";
         icon.src = "https://img.icons8.com/ios-filled/200/microwave.png";
     }
